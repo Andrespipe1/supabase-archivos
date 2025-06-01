@@ -25,3 +25,6 @@ Aplicación móvil para subir archivos a Supabase Storage construida con Ionic A
 
 3. Carga a supabase <br>
 ![imagen](https://github.com/user-attachments/assets/97d02e23-f037-43f7-b667-b195158dcc07)
+
+![imagen](https://github.com/user-attachments/assets/4cfd1d41-af8a-48e8-a9d2-234e5709096d)
+
