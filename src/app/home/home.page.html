@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Supabase Uploader
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,12 +9,41 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Supabase Uploader</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div class="ion-padding">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Subir archivo a Supabase</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <input type="file" (change)="onFileSelected($event)" accept="*" />
+
+        <ion-button 
+          expand="block" 
+          (click)="uploadFile()" 
+          [disabled]="!selectedFile || isUploading"
+          class="ion-margin-top">
+          Subir Archivo
+        </ion-button>
+
+        <div *ngIf="isUploading" class="ion-margin-top">
+          <ion-progress-bar [value]="uploadProgress / 100"></ion-progress-bar>
+          <p>Subiendo: {{uploadProgress}}%</p>
+        </div>
+
+        <div *ngIf="uploadComplete" class="ion-margin-top">
+          <ion-text color="success">
+            <h3>¡Archivo subido con éxito!</h3>
+          </ion-text>
+          <ion-text *ngIf="publicUrl">
+            <p>URL pública: <a [href]="publicUrl" target="_blank">{{publicUrl}}</a></p>
+          </ion-text>
+        </div>
+      </ion-card-content>
+    </ion-card>
   </div>
 </ion-content>
